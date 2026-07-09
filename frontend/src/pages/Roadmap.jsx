@@ -1,7 +1,6 @@
 import React from 'react';
 import { CheckCircle2, Circle, Clock } from 'lucide-react';
 import { Card } from '../components/ui/card';
-import { roadmapPhases } from '../mock';
 
 export const Roadmap = () => {
   const statusConfig = {
@@ -10,11 +9,68 @@ export const Roadmap = () => {
     upcoming: { icon: Circle, color: 'text-gray-400', bg: 'bg-gray-500/10', border: 'border-gray-500/30' }
   };
 
+  const roadmapPhases = [
+    {
+      phase: 'Phase 1',
+      title: 'Launch',
+      status: 'completed',
+      items: [
+        'Token deployment on BSC',
+        'Community launch',
+        'Branding & awareness campaign',
+        'White paper publication'
+      ]
+    },
+    {
+      phase: 'Phase 2',
+      title: 'Utility Rollout',
+      status: 'in-progress',
+      items: [
+        'Launch flexible staking',
+        'Launch fixed staking'
+      ]
+    },
+    {
+      phase: 'Phase 3',
+      title: 'Ecosystem Expansion',
+      status: 'upcoming',
+      items: [
+        'Cross-chain integration',
+        'DeFi partnerships',
+        'Community governance'
+      ]
+    },
+    {
+      phase: 'Phase 4',
+      title: 'Full Scale',
+      status: 'upcoming',
+      items: [
+        'Global community events',
+        'Enterprise solutions',
+        'Advanced features release'
+      ]
+    }
+  ];
+
   return (
-    <div className="relative pt-32 pb-20 px-4">
+    <div 
+      className="relative pt-32 pb-20 px-4 overflow-hidden"
+      style={{ 
+        touchAction: 'none',
+        overscrollBehavior: 'none'
+      }}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-20">
+          {/* Logo Section - ADDED */}
+          <div className="mb-8 flex justify-center">
+            <img 
+              src="/logo.jpeg" 
+              alt="CZT Logo" 
+              className="w-20 h-20 object-contain"
+            />
+          </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">
               Roadmap
@@ -87,17 +143,6 @@ export const Roadmap = () => {
               );
             })}
           </div>
-        </div>
-
-        {/* Future Vision */}
-        <div className="mt-32">
-          <Card className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border border-amber-500/30 p-12 text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Beyond Phase 4</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Our roadmap is continuously evolving based on community feedback and market opportunities. 
-              We're committed to building a sustainable ecosystem that delivers long-term value for all $CZT holders.
-            </p>
-          </Card>
         </div>
       </div>
     </div>

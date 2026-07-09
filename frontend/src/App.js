@@ -10,6 +10,7 @@ import { About } from "@/pages/About";
 import { Tokenomics } from "@/pages/Tokenomics";
 import { Roadmap } from "@/pages/Roadmap";
 import { Staking } from "@/pages/Staking";
+import Whitepaper from './pages/Whitepaper';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/tokenomics" element={<Tokenomics />} />
             <Route path="/roadmap" element={<Roadmap />} />
             <Route path="/staking" element={<Staking />} />
+<Route path="/whitepaper" element={<Whitepaper />} />
           </Routes>
         </div>
         <Footer />

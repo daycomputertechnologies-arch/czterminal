@@ -29,6 +29,14 @@ export const Staking = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-20">
+          {/* Logo Section - ADDED */}
+          <div className="mb-8 flex justify-center">
+            <img 
+              src="/logo.jpeg" 
+              alt="CZT Logo" 
+              className="w-16 h-16 object-contain"
+            />
+          </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">
               Stake & Earn

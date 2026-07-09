@@ -5,12 +5,10 @@ export const BlockchainBackground = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-
     const ctx = canvas.getContext('2d');
-    let animationFrameId;
+    let animationId;
+    let blocks = [];
 
-    // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -18,112 +16,155 @@ export const BlockchainBackground = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Terminal nodes
-    const nodes = [];
-    const nodeCount = 80;
-    
-    for (let i = 0; i < nodeCount; i++) {
-      nodes.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 2 + 1
-      });
-    }
+    class Block {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 30 + 15;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.opacity = Math.random() * 0.3 + 0.2;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.01;
+        this.pulse = Math.random() * Math.PI * 2;
+        this.pulseSpeed = 0.01 + Math.random() * 0.01;
+        
+        const colors = [
+          { r: 255, g: 215, b: 0 },
+          { r: 255, g: 200, b: 50 },
+          { r: 255, g: 180, b: 0 },
+          { r: 240, g: 200, b: 80 },
+        ];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        this.color = `rgba(${color.r}, ${color.g}, ${color.b}, `;
+      }
 
-    // Circuit lines
-    const circuits = [];
-    for (let i = 0; i < 15; i++) {
-      circuits.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        length: Math.random() * 200 + 100,
-        angle: Math.random() * Math.PI * 2,
-        speed: Math.random() * 0.5 + 0.2,
-        opacity: Math.random() * 0.3 + 0.1
-      });
-    }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.rotation += this.rotationSpeed;
+        this.pulse += this.pulseSpeed;
 
-    const animate = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
 
-      // Draw circuit lines
-      circuits.forEach(circuit => {
+        const pulseFactor = 0.5 + Math.sin(this.pulse) * 0.3;
+        return pulseFactor;
+      }
+
+      draw(ctx, pulseFactor) {
         ctx.save();
-        ctx.translate(circuit.x, circuit.y);
-        ctx.rotate(circuit.angle);
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
         
-        const gradient = ctx.createLinearGradient(0, 0, circuit.length, 0);
-        gradient.addColorStop(0, `rgba(245, 158, 11, 0)`);
-        gradient.addColorStop(0.5, `rgba(245, 158, 11, ${circuit.opacity})`);
-        gradient.addColorStop(1, `rgba(245, 158, 11, 0)`);
+        const size = this.size;
+        const halfSize = size / 2;
         
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = 1;
+        const baseOpacity = this.opacity * 0.7;
+        ctx.fillStyle = this.color + (baseOpacity * pulseFactor) + ')';
+        ctx.shadowColor = `rgba(255, 215, 0, ${baseOpacity * 0.3})`;
+        ctx.shadowBlur = 15;
+        ctx.fillRect(-halfSize, -halfSize, size, size);
+        
+        ctx.strokeStyle = this.color + (baseOpacity * 0.6 * pulseFactor) + ')';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(-halfSize, -halfSize, size, size);
+        
+        const dotCount = 4;
+        for (let i = 0; i < dotCount; i++) {
+          const angle = (i / dotCount) * Math.PI * 2;
+          const radius = size * 0.7;
+          const dotX = Math.cos(angle) * radius;
+          const dotY = Math.sin(angle) * radius;
+          
+          ctx.beginPath();
+          ctx.arc(dotX, dotY, 4, 0, Math.PI * 2);
+          ctx.fillStyle = this.color + (baseOpacity * 0.5 * pulseFactor) + ')';
+          ctx.fill();
+        }
+        
         ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(circuit.length, 0);
+        for (let i = 0; i < dotCount; i++) {
+          const angle = (i / dotCount) * Math.PI * 2;
+          const radius = size * 0.7;
+          const dotX = Math.cos(angle) * radius;
+          const dotY = Math.sin(angle) * radius;
+          
+          if (i === 0) {
+            ctx.moveTo(dotX, dotY);
+          } else {
+            ctx.lineTo(dotX, dotY);
+          }
+        }
+        ctx.closePath();
+        ctx.strokeStyle = this.color + (baseOpacity * 0.3 * pulseFactor) + ')';
+        ctx.lineWidth = 1;
         ctx.stroke();
         
         ctx.restore();
+      }
+    }
 
-        circuit.angle += circuit.speed * 0.002;
-        circuit.opacity = Math.sin(Date.now() * 0.001 + circuit.speed) * 0.2 + 0.2;
-      });
+    const numBlocks = Math.min(40, Math.floor((canvas.width * canvas.height) / 50000));
+    for (let i = 0; i < numBlocks; i++) {
+      blocks.push(new Block());
+    }
 
-      // Draw and update nodes
-      nodes.forEach((node, i) => {
-        // Draw node
-        ctx.fillStyle = 'rgba(245, 158, 11, 0.6)';
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Draw connections
-        nodes.forEach((otherNode, j) => {
-          if (i !== j) {
-            const dx = otherNode.x - node.x;
-            const dy = otherNode.y - node.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 150) {
-              ctx.strokeStyle = `rgba(245, 158, 11, ${0.15 * (1 - distance / 150)})`;
-              ctx.lineWidth = 0.5;
-              ctx.beginPath();
-              ctx.moveTo(node.x, node.y);
-              ctx.lineTo(otherNode.x, otherNode.y);
-              ctx.stroke();
-            }
+    const drawConnections = (ctx) => {
+      for (let i = 0; i < blocks.length; i++) {
+        for (let j = i + 1; j < blocks.length; j++) {
+          const dx = blocks[i].x - blocks[j].x;
+          const dy = blocks[i].y - blocks[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < 200) {
+            const opacity = (1 - distance / 200) * 0.2;
+            ctx.beginPath();
+            ctx.moveTo(blocks[i].x, blocks[i].y);
+            ctx.lineTo(blocks[j].x, blocks[j].y);
+            ctx.strokeStyle = `rgba(255, 215, 0, ${opacity})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
           }
-        });
+        }
+      }
+    };
 
-        // Update position
-        node.x += node.vx;
-        node.y += node.vy;
-
-        // Bounce off edges
-        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
-        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      drawConnections(ctx);
+      
+      blocks.forEach(block => {
+        const pulseFactor = block.update();
+        block.draw(ctx, pulseFactor);
       });
-
-      animationFrameId = requestAnimationFrame(animate);
+      
+      animationId = requestAnimationFrame(animate);
     };
 
     animate();
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
+      cancelAnimationFrame(animationId);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 0 }}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 0,
+        pointerEvents: 'none',
+      }}
     />
   );
 };
+
+export default BlockchainBackground;

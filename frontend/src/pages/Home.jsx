@@ -25,6 +25,15 @@ export const Home = () => {
             </div>
           </div>
 
+          {/* Logo Section - UPDATED */}
+          <div className="mb-8 flex justify-center">
+            <img 
+              src="/logo.jpeg" 
+              alt="CZT Logo" 
+              className="w-20 h-20 object-contain"
+            />
+          </div>
+
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
             <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
               The Terminal for
