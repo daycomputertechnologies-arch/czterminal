@@ -7,13 +7,13 @@ export const Navigation = () => {
   const location = useLocation();
 
   const navLinks = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About' },
-  { path: '/tokenomics', label: 'Tokenomics' },
-  { path: '/roadmap', label: 'Roadmap' },
-  { path: '/staking', label: 'Staking' },
-  { path: '/whitepaper', label: '📄 Whitepaper' },
-];
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
+    { path: '/tokenomics', label: 'Tokenomics' },
+    { path: '/roadmap', label: 'Roadmap' },
+    { path: '/staking', label: 'Staking', disabled: true },
+    { path: '/whitepaper', label: '📄 Whitepaper' },
+  ];
 
   const isActive = (path) => location.pathname === path;
 
@@ -40,17 +40,26 @@ export const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  isActive(link.path)
-                    ? 'text-amber-400'
-                    : 'text-gray-300 hover:text-amber-400'
-                }`}
-              >
-                {link.label}
-              </Link>
+              link.disabled ? (
+                <span
+                  key={link.path}
+                  className="text-sm font-medium text-gray-500 cursor-not-allowed opacity-50"
+                >
+                  {link.label} 🔒
+                </span>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    isActive(link.path)
+                      ? 'text-amber-400'
+                      : 'text-gray-300 hover:text-amber-400'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </div>
 
@@ -69,18 +78,27 @@ export const Navigation = () => {
         <div className="md:hidden bg-black/95 backdrop-blur-md border-b border-amber-500/20">
           <div className="px-4 pt-2 pb-4 space-y-2">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                  isActive(link.path)
-                    ? 'bg-amber-500/10 text-amber-400'
-                    : 'text-gray-300 hover:bg-amber-500/10 hover:text-amber-400'
-                }`}
-              >
-                {link.label}
-              </Link>
+              link.disabled ? (
+                <span
+                  key={link.path}
+                  className="block px-4 py-3 rounded-lg text-sm font-medium text-gray-500 cursor-not-allowed opacity-50"
+                >
+                  {link.label} 🔒
+                </span>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                    isActive(link.path)
+                      ? 'bg-amber-500/10 text-amber-400'
+                      : 'text-gray-300 hover:bg-amber-500/10 hover:text-amber-400'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </div>
         </div>
