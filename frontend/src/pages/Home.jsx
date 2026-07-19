@@ -1,23 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Shield, Coins, Users, Copy, Check } from 'lucide-react';
+import { ArrowRight, Zap, Shield, Coins, Users } from 'lucide-react';
 import { Card } from '../components/ui/card';
+import { PancakeSwapButton } from '../components/PancakeSwapButton';
 
 export const Home = () => {
-  const [copied, setCopied] = React.useState(false);
-
-  const contractAddress = '0x1234567890abcdef1234567890abcdef12345678';
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(contractAddress);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  };
-
   return (
     <div className="relative pt-32 pb-20 px-4 min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -62,7 +49,7 @@ export const Home = () => {
         </div>
 
         {/* Contract Address Section */}
-        <div className="mb-16">
+        <div className="mb-12">
           <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/30 p-6 max-w-2xl mx-auto hover:border-amber-500/60 transition-all duration-300">
             <div className="text-center mb-4">
               <h3 className="text-lg font-semibold text-amber-400 flex items-center justify-center gap-2">
@@ -73,28 +60,21 @@ export const Home = () => {
             <div className="flex items-center gap-3 bg-black/50 rounded-lg p-3 border border-amber-500/20">
               <div className="flex-1 overflow-hidden">
                 <code className="text-sm text-gray-300 font-mono truncate block">
-                  {contractAddress}
+                  0x1234567890abcdef1234567890abcdef12345678
                 </code>
               </div>
               <button
-                onClick={handleCopy}
-                className={`flex-shrink-0 px-4 py-2 font-semibold rounded-lg transition-all duration-200 hover:scale-105 text-sm flex items-center gap-2 ${
-                  copied 
-                    ? 'bg-green-500/30 text-green-400' 
-                    : 'bg-amber-500/20 hover:bg-amber-500/30 text-amber-400'
-                }`}
+                onClick={() => {
+                  navigator.clipboard.writeText('0x1234567890abcdef1234567890abcdef12345678');
+                  // Optional: Add toast notification here
+                }}
+                className="flex-shrink-0 px-4 py-2 bg-amber-500/20 hover:bg-amber-500/30 text-amber-400 font-semibold rounded-lg transition-all duration-200 hover:scale-105 text-sm flex items-center gap-2"
               >
-                {copied ? (
-                  <>
-                    <Check className="w-4 h-4" />
-                    Copied!
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4" />
-                    Copy
-                  </>
-                )}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy
               </button>
             </div>
             <p className="text-xs text-gray-500 text-center mt-3">
@@ -103,8 +83,11 @@ export const Home = () => {
           </Card>
         </div>
 
+        {/* PancakeSwap Button - Shows only when wallet is connected */}
+        <PancakeSwapButton />
+
         {/* Features Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20 mt-12">
           <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/30 p-6 hover:border-amber-500/60 transition-all duration-300">
             <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center mb-4">
               <Coins className="w-6 h-6 text-amber-400" />

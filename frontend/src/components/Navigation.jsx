@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useAccount } from 'wagmi';
+import { WalletConnect } from './WalletConnect';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { isConnected } = useAccount();
 
   const navLinks = [
     { path: '/', label: 'Home' },
@@ -16,6 +19,10 @@ export const Navigation = () => {
   ];
 
   const isActive = (path) => location.pathname === path;
+
+  // PancakeSwap URL with your token
+  const TOKEN_ADDRESS = '0x1234567890abcdef1234567890abcdef12345678';
+  const PANCAKESWAP_URL = `https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=${TOKEN_ADDRESS}`;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-amber-500/20">
@@ -61,6 +68,20 @@ export const Navigation = () => {
                 </Link>
               )
             ))}
+            
+            {/* Buy Button - Shows only when wallet is connected */}
+            {isConnected && (
+              <a
+                href={PANCAKESWAP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold rounded-lg hover:from-amber-400 hover:to-amber-500 transition-all duration-200"
+              >
+                🥞 Buy CZT
+              </a>
+            )}
+            
+            <WalletConnect />
           </div>
 
           {/* Mobile Menu Button */}
@@ -100,6 +121,23 @@ export const Navigation = () => {
                 </Link>
               )
             ))}
+            
+            {/* Buy Button in Mobile Menu */}
+            {isConnected && (
+              <a
+                href={PANCAKESWAP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-4 py-3 rounded-lg text-sm font-medium bg-gradient-to-r from-amber-500 to-amber-600 text-black text-center font-bold"
+                onClick={() => setIsOpen(false)}
+              >
+                🥞 Buy CZT
+              </a>
+            )}
+            
+            <div className="px-4 py-2">
+              <WalletConnect />
+            </div>
           </div>
         </div>
       )}
