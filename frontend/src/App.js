@@ -1,6 +1,7 @@
 import React from 'react';
 import { WagmiProvider } from 'wagmi';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createWeb3Modal } from '@web3modal/wagmi/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { config } from './config/walletConfig';
 import { Toaster } from '@/components/ui/sonner';
@@ -16,6 +17,20 @@ import { Whitepaper } from '@/pages/Whitepaper';
 import './App.css';
 
 const queryClient = new QueryClient();
+
+// Create Web3Modal
+createWeb3Modal({
+  wagmiConfig: config,
+  projectId: 'e4642882d2adeee57b22c232232401f4',
+  themeMode: 'dark',
+  themeVariables: {
+    '--w3m-accent': '#f59e0b',
+    '--w3m-background-color': '#000000',
+    '--w3m-font-family': 'Inter, sans-serif',
+  },
+  // This automatically detects mobile and shows appropriate UI
+  defaultChain: config.chains[0],
+});
 
 function App() {
   return (

@@ -15,7 +15,7 @@ export const Tokenomics = () => {
     'Liquidity & Market Support': Coins,
     'Staking Rewards': Lock,
     'Holder Airdrops & Community Rewards': Users,
-    'Team & Development': Rocket,
+    'Project Development': Rocket,  // ✅ CHANGED: Team & Development → Project Development
     'Marketing & Partnerships': Megaphone,
     'Treasury / Reserve': Building
   };
@@ -25,7 +25,7 @@ export const Tokenomics = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-20">
-          {/* Logo Section - ADDED */}
+          {/* Logo Section */}
           <div className="mb-8 flex justify-center">
             <img 
               src="/logo.jpeg" 
@@ -111,6 +111,11 @@ export const Tokenomics = () => {
               );
             })}
           </div>
+        </div>
+
+        {/* ✅ ADDED: NO TEAM TOKEN ALLOCATION Footer */}
+        <div className="mt-8 p-4 bg-amber-500/10 border border-amber-500/30 rounded-lg text-center">
+          <p className="text-amber-400 font-bold text-lg">NO TEAM TOKEN ALLOCATION.</p>
         </div>
 
         {/* Key Features */}

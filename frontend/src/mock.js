@@ -23,7 +23,7 @@ export const tokenomics = {
     { category: "Liquidity & Market Support", percentage: 30, amount: "150,000,000", color: "#F59E0B" },
     { category: "Staking Rewards", percentage: 20, amount: "100,000,000", color: "#D97706" },
     { category: "Holder Airdrops & Community Rewards", percentage: 15, amount: "75,000,000", color: "#B45309" },
-    { category: "Team & Development", percentage: 15, amount: "75,000,000", color: "#92400E" },
+    { category: "Project Development", percentage: 15, amount: "75,000,000", color: "#92400E" }, // ✅ CHANGED
     { category: "Marketing & Partnerships", percentage: 10, amount: "50,000,000", color: "#78350F" },
     { category: "Treasury / Reserve", percentage: 10, amount: "50,000,000", color: "#451A03" }
   ]
