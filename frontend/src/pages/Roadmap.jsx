@@ -4,9 +4,24 @@ import { Card } from '../components/ui/card';
 
 export const Roadmap = () => {
   const statusConfig = {
-    completed: { icon: CheckCircle2, color: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/30' },
-    'in-progress': { icon: Clock, color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/30' },
-    upcoming: { icon: Circle, color: 'text-gray-400', bg: 'bg-gray-500/10', border: 'border-gray-500/30' }
+    completed: {
+      icon: CheckCircle2,
+      color: 'text-green-400',
+      bg: 'bg-green-500/10',
+      border: 'border-green-500/30',
+    },
+    'in-progress': {
+      icon: Clock,
+      color: 'text-amber-400',
+      bg: 'bg-amber-500/10',
+      border: 'border-amber-500/30',
+    },
+    upcoming: {
+      icon: Circle,
+      color: 'text-gray-400',
+      bg: 'bg-gray-500/10',
+      border: 'border-gray-500/30',
+    },
   };
 
   const roadmapPhases = [
@@ -18,17 +33,14 @@ export const Roadmap = () => {
         'Token deployment on BSC',
         'Community launch',
         'Branding & awareness campaign',
-        'White paper publication'
-      ]
+        'White paper publication',
+      ],
     },
     {
       phase: 'Phase 2',
       title: 'Utility Rollout',
       status: 'in-progress',
-      items: [
-        'Launch flexible staking',
-        'Launch fixed staking'
-      ]
+      items: ['Launch flexible staking', 'Launch fixed staking'],
     },
     {
       phase: 'Phase 3',
@@ -37,8 +49,8 @@ export const Roadmap = () => {
       items: [
         'Cross-chain integration',
         'DeFi partnerships',
-        'Community governance'
-      ]
+        'Community governance',
+      ],
     },
     {
       phase: 'Phase 4',
@@ -47,18 +59,18 @@ export const Roadmap = () => {
       items: [
         'Global community events',
         'Enterprise solutions',
-        'Advanced features release'
-      ]
-    }
+        'Advanced features release',
+      ],
+    },
   ];
 
   return (
-    <div 
+    <div
       className="relative pt-32 pb-20 px-4 min-h-screen overflow-y-auto"
-      style={{ 
+      style={{
         height: '100vh',
         overflowY: 'auto',
-        scrollBehavior: 'smooth'
+        scrollBehavior: 'smooth',
       }}
     >
       <div className="max-w-7xl mx-auto">
@@ -92,24 +104,39 @@ export const Roadmap = () => {
                   } flex-col`}
                 >
                   {/* Content Card */}
-                  <div className={`w-full lg:w-5/12 ${isLeft ? 'lg:pr-12' : 'lg:pl-12'}`}>
+                  <div
+                    className={`w-full lg:w-5/12 ${isLeft ? 'lg:pr-12' : 'lg:pl-12'}`}
+                  >
                     <Card
                       className={`bg-gradient-to-br from-black to-amber-950/20 border ${statusConfig[phase.status].border} p-8 hover:border-amber-500/40 transition-all duration-300 hover:transform hover:scale-105`}
                     >
                       <div className="flex items-center justify-between mb-6">
                         <div>
-                          <div className="text-amber-400 font-semibold text-sm mb-1">{phase.phase}</div>
-                          <h3 className="text-3xl font-bold text-white">{phase.title}</h3>
+                          <div className="text-amber-400 font-semibold text-sm mb-1">
+                            {phase.phase}
+                          </div>
+                          <h3 className="text-3xl font-bold text-white">
+                            {phase.title}
+                          </h3>
                         </div>
-                        <div className={`w-16 h-16 rounded-full ${statusConfig[phase.status].bg} border ${statusConfig[phase.status].border} flex items-center justify-center`}>
-                          <StatusIcon className={`w-8 h-8 ${statusConfig[phase.status].color}`} />
+                        <div
+                          className={`w-16 h-16 rounded-full ${statusConfig[phase.status].bg} border ${statusConfig[phase.status].border} flex items-center justify-center`}
+                        >
+                          <StatusIcon
+                            className={`w-8 h-8 ${statusConfig[phase.status].color}`}
+                          />
                         </div>
                       </div>
 
                       <div className="space-y-3">
                         {phase.items.map((item, itemIndex) => (
-                          <div key={itemIndex} className="flex items-start space-x-3">
-                            <div className={`w-2 h-2 rounded-full ${statusConfig[phase.status].color.replace('text-', 'bg-')} mt-2 flex-shrink-0`}></div>
+                          <div
+                            key={itemIndex}
+                            className="flex items-start space-x-3"
+                          >
+                            <div
+                              className={`w-2 h-2 rounded-full ${statusConfig[phase.status].color.replace('text-', 'bg-')} mt-2 flex-shrink-0`}
+                            ></div>
                             <p className="text-gray-300">{item}</p>
                           </div>
                         ))}

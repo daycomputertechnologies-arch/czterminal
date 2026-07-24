@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Whitepaper = () => {
-  const pdfUrl = "/CZTerminal Whitepaper.pdf";
+  const pdfUrl = '/CZTerminal Whitepaper.pdf';
 
   return (
     <div className="relative pt-32 pb-20 px-4 min-h-screen">
@@ -38,7 +38,10 @@ export const Whitepaper = () => {
         </div>
 
         {/* Embedded PDF Viewer */}
-        <div className="bg-gray-900 rounded-lg border border-amber-500/20 overflow-hidden" style={{ height: '80vh' }}>
+        <div
+          className="bg-gray-900 rounded-lg border border-amber-500/20 overflow-hidden"
+          style={{ height: '80vh' }}
+        >
           <embed
             src={pdfUrl}
             type="application/pdf"
@@ -48,7 +51,8 @@ export const Whitepaper = () => {
         </div>
 
         <div className="mt-4 text-center text-gray-500 text-sm">
-          File: CZTerminal Whitepaper.pdf • {new Date().getFullYear()} CZTerminal
+          File: CZTerminal Whitepaper.pdf • {new Date().getFullYear()}{' '}
+          CZTerminal
         </div>
       </div>
     </div>

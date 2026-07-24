@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Lock, Unlock, TrendingUp, Calendar, Coins, ArrowRight } from 'lucide-react';
+import {
+  Lock,
+  Unlock,
+  TrendingUp,
+  Calendar,
+  Coins,
+  ArrowRight,
+} from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -31,9 +38,9 @@ export const Staking = () => {
         <div className="text-center mb-20">
           {/* Logo Section - ADDED */}
           <div className="mb-8 flex justify-center">
-            <img 
-              src="/logo.jpeg" 
-              alt="CZT Logo" 
+            <img
+              src="/logo.jpeg"
+              alt="CZT Logo"
               className="w-16 h-16 object-contain"
             />
           </div>
@@ -69,35 +76,56 @@ export const Staking = () => {
                     )}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white">{option.type}</h3>
-                    <p className="text-amber-400 font-semibold text-lg">{option.apy} APY</p>
+                    <h3 className="text-2xl font-bold text-white">
+                      {option.type}
+                    </h3>
+                    <p className="text-amber-400 font-semibold text-lg">
+                      {option.apy} APY
+                    </p>
                   </div>
                 </div>
                 {selectedOption === index && (
                   <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-black"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                 )}
               </div>
 
-              <p className="text-gray-400 mb-6 leading-relaxed">{option.description}</p>
+              <p className="text-gray-400 mb-6 leading-relaxed">
+                {option.description}
+              </p>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-amber-500/5 border border-amber-500/20 rounded-lg p-4">
                   <div className="text-gray-400 text-sm mb-1">Lock Period</div>
-                  <div className="text-white font-semibold">{option.lockPeriod}</div>
+                  <div className="text-white font-semibold">
+                    {option.lockPeriod}
+                  </div>
                 </div>
                 <div className="bg-amber-500/5 border border-amber-500/20 rounded-lg p-4">
                   <div className="text-gray-400 text-sm mb-1">Min. Amount</div>
-                  <div className="text-white font-semibold">{option.minAmount}</div>
+                  <div className="text-white font-semibold">
+                    {option.minAmount}
+                  </div>
                 </div>
               </div>
 
               <div className="space-y-2">
                 {option.features.map((feature, fIndex) => (
-                  <div key={fIndex} className="flex items-center space-x-2 text-gray-300 text-sm">
+                  <div
+                    key={fIndex}
+                    className="flex items-center space-x-2 text-gray-300 text-sm"
+                  >
                     <div className="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
                     <span>{feature}</span>
                   </div>
@@ -109,11 +137,15 @@ export const Staking = () => {
 
         {/* Staking Form */}
         <Card className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border border-amber-500/30 p-8 md:p-12 max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">Stake Your Tokens</h2>
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+            Stake Your Tokens
+          </h2>
 
           <div className="space-y-6">
             <div>
-              <label className="text-gray-300 text-sm font-medium mb-2 block">Amount to Stake</label>
+              <label className="text-gray-300 text-sm font-medium mb-2 block">
+                Amount to Stake
+              </label>
               <div className="relative">
                 <Input
                   type="number"
@@ -130,7 +162,9 @@ export const Staking = () => {
 
             {selectedOption === 1 && (
               <div>
-                <label className="text-gray-300 text-sm font-medium mb-2 block">Lock Period (Days)</label>
+                <label className="text-gray-300 text-sm font-medium mb-2 block">
+                  Lock Period (Days)
+                </label>
                 <select
                   value={lockPeriod}
                   onChange={(e) => setLockPeriod(e.target.value)}
@@ -145,14 +179,20 @@ export const Staking = () => {
 
             {amount && selectedOption !== null && (
               <Card className="bg-amber-500/5 border border-amber-500/20 p-6">
-                <h3 className="text-white font-semibold mb-4">Estimated Rewards</h3>
+                <h3 className="text-white font-semibold mb-4">
+                  Estimated Rewards
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <div className="text-gray-400 text-sm mb-1">APY</div>
-                    <div className="text-amber-400 text-xl font-bold">{stakingOptions[selectedOption].apy}</div>
+                    <div className="text-amber-400 text-xl font-bold">
+                      {stakingOptions[selectedOption].apy}
+                    </div>
                   </div>
                   <div>
-                    <div className="text-gray-400 text-sm mb-1">Est. Annual Reward</div>
+                    <div className="text-gray-400 text-sm mb-1">
+                      Est. Annual Reward
+                    </div>
                     <div className="text-amber-400 text-xl font-bold">
                       {selectedOption === 0
                         ? (parseFloat(amount) * 0.1).toFixed(0)

@@ -31,22 +31,25 @@ export const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 overflow-hidden">
-              <img 
-                src="/logo.jpeg" 
-                alt="CZT Logo" 
+              <img
+                src="/logo.jpeg"
+                alt="CZT Logo"
                 className="w-10 h-10 object-contain"
                 onError={(e) => {
                   e.target.style.display = 'none';
-                  e.target.parentElement.innerHTML = '<span class="text-black font-bold text-xl">CZT</span>';
+                  e.target.parentElement.innerHTML =
+                    '<span class="text-black font-bold text-xl">CZT</span>';
                 }}
               />
             </div>
-            <span className="text-white font-bold text-xl hidden sm:block">CZT</span>
+            <span className="text-white font-bold text-xl hidden sm:block">
+              CZT
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link) =>
               link.disabled ? (
                 <span
                   key={link.path}
@@ -67,8 +70,8 @@ export const Navigation = () => {
                   {link.label}
                 </Link>
               )
-            ))}
-            
+            )}
+
             {/* Buy Button - Shows only when wallet is connected */}
             {isConnected && (
               <a
@@ -80,7 +83,7 @@ export const Navigation = () => {
                 🥞 Buy CZT
               </a>
             )}
-            
+
             <WalletConnect />
           </div>
 
@@ -98,7 +101,7 @@ export const Navigation = () => {
       {isOpen && (
         <div className="md:hidden bg-black/95 backdrop-blur-md border-b border-amber-500/20">
           <div className="px-4 pt-2 pb-4 space-y-2">
-            {navLinks.map((link) => (
+            {navLinks.map((link) =>
               link.disabled ? (
                 <span
                   key={link.path}
@@ -120,8 +123,8 @@ export const Navigation = () => {
                   {link.label}
                 </Link>
               )
-            ))}
-            
+            )}
+
             {/* Buy Button in Mobile Menu */}
             {isConnected && (
               <a
@@ -134,7 +137,7 @@ export const Navigation = () => {
                 🥞 Buy CZT
               </a>
             )}
-            
+
             <div className="px-4 py-2">
               <WalletConnect />
             </div>
