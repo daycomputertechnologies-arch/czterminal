@@ -11,13 +11,14 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-[2px]">
                 <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="/logo.png" 
-                    alt="CZT Logo" 
+                  <img
+                    src="/logo.webp"
+                    alt="CZT Logo"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.target.style.display = 'none';
-                      e.target.parentElement.innerHTML = '<span class="text-amber-400 font-bold text-sm">CZT</span>';
+                      e.target.parentElement.innerHTML =
+                        '<span class="text-amber-400 font-bold text-sm">CZT</span>';
                     }}
                   />
                 </div>
@@ -31,7 +32,7 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex space-x-4 mt-4">
               <a
-                href="https://x.com/czterminal6"
+                href="https://x.com/czterminaltoken?s=11"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-amber-400 transition-colors duration-200"

@@ -8,7 +8,7 @@ const PancakeSwapButton = () => {
 
   // Your token contract address (UPDATE THIS LATER)
   const TOKEN_ADDRESS = '0x1234567890abcdef1234567890abcdef12345678';
-  
+
   // PancakeSwap swap URL with BNB as input and token as output
   const PANCAKESWAP_URL = `https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=${TOKEN_ADDRESS}`;
 
@@ -44,13 +44,13 @@ const PancakeSwapButton = () => {
             <span className="text-amber-400 text-xl">🥞</span>
           </div>
           <div>
-            <h4 className="text-white font-semibold text-sm">Buy $CZT on PancakeSwap</h4>
-            <p className="text-gray-400 text-xs">
-              Swap BNB for CZT tokens
-            </p>
+            <h4 className="text-white font-semibold text-sm">
+              Buy $CZT on PancakeSwap
+            </h4>
+            <p className="text-gray-400 text-xs">Swap BNB for CZT tokens</p>
           </div>
         </div>
-        
+
         <button
           onClick={handleBuyTokens}
           className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold rounded-lg hover:from-amber-400 hover:to-amber-500 transition-all duration-300 group"

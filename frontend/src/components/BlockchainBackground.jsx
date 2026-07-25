@@ -21,14 +21,14 @@ const BlockchainBackground = () => {
     // Terminal nodes
     const nodes = [];
     const nodeCount = 80;
-    
+
     for (let i = 0; i < nodeCount; i++) {
       nodes.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 2 + 1
+        radius: Math.random() * 2 + 1,
       });
     }
 
@@ -41,7 +41,7 @@ const BlockchainBackground = () => {
         length: Math.random() * 200 + 100,
         angle: Math.random() * Math.PI * 2,
         speed: Math.random() * 0.5 + 0.2,
-        opacity: Math.random() * 0.3 + 0.1
+        opacity: Math.random() * 0.3 + 0.1,
       });
     }
 
@@ -50,27 +50,28 @@ const BlockchainBackground = () => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Draw circuit lines
-      circuits.forEach(circuit => {
+      circuits.forEach((circuit) => {
         ctx.save();
         ctx.translate(circuit.x, circuit.y);
         ctx.rotate(circuit.angle);
-        
+
         const gradient = ctx.createLinearGradient(0, 0, circuit.length, 0);
         gradient.addColorStop(0, `rgba(245, 158, 11, 0)`);
         gradient.addColorStop(0.5, `rgba(245, 158, 11, ${circuit.opacity})`);
         gradient.addColorStop(1, `rgba(245, 158, 11, 0)`);
-        
+
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(0, 0);
         ctx.lineTo(circuit.length, 0);
         ctx.stroke();
-        
+
         ctx.restore();
 
         circuit.angle += circuit.speed * 0.002;
-        circuit.opacity = Math.sin(Date.now() * 0.001 + circuit.speed) * 0.2 + 0.2;
+        circuit.opacity =
+          Math.sin(Date.now() * 0.001 + circuit.speed) * 0.2 + 0.2;
       });
 
       // Draw and update nodes

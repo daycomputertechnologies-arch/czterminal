@@ -12,13 +12,14 @@ const About = () => {
           <div className="flex justify-center mb-6">
             <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-[2px]">
               <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/logo.png" 
-                  alt="CZT Logo" 
+                <img
+                  src="/logo.webp"
+                  alt="CZT Logo"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<span class="text-amber-400 font-bold text-2xl">CZT</span>';
+                    e.target.parentElement.innerHTML =
+                      '<span class="text-amber-400 font-bold text-2xl">CZT</span>';
                   }}
                 />
               </div>
@@ -42,8 +43,9 @@ const About = () => {
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">Our Mission</h2>
             <p className="text-gray-400 leading-relaxed">
-              To create a sustainable, community-driven token ecosystem that empowers holders through 
-              innovative staking mechanisms, transparent governance, and strategic partnerships.
+              To create a sustainable, community-driven token ecosystem that
+              empowers holders through innovative staking mechanisms,
+              transparent governance, and strategic partnerships.
             </p>
           </Card>
 
@@ -53,8 +55,9 @@ const About = () => {
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">Our Values</h2>
             <p className="text-gray-400 leading-relaxed">
-              Transparency, security, and community-first decision making. We believe in building 
-              a token ecosystem that benefits all participants equally.
+              Transparency, security, and community-first decision making. We
+              believe in building a token ecosystem that benefits all
+              participants equally.
             </p>
           </Card>
         </div>
@@ -72,7 +75,9 @@ const About = () => {
                 <Shield className="w-8 h-8 text-amber-400" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Secure</h3>
-              <p className="text-gray-400">Audited smart contracts with community oversight</p>
+              <p className="text-gray-400">
+                Audited smart contracts with community oversight
+              </p>
             </Card>
 
             <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/20 p-8 text-center hover:border-amber-500/40 transition-all duration-300 hover:transform hover:scale-105">
@@ -80,7 +85,9 @@ const About = () => {
                 <TrendingUp className="w-8 h-8 text-amber-400" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Sustainable</h3>
-              <p className="text-gray-400">Deflationary tokenomics designed for long-term growth</p>
+              <p className="text-gray-400">
+                Deflationary tokenomics designed for long-term growth
+              </p>
             </Card>
 
             <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/20 p-8 text-center hover:border-amber-500/40 transition-all duration-300 hover:transform hover:scale-105">
@@ -88,7 +95,9 @@ const About = () => {
                 <Users className="w-8 h-8 text-amber-400" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Community</h3>
-              <p className="text-gray-400">Driven by community votes and participation</p>
+              <p className="text-gray-400">
+                Driven by community votes and participation
+              </p>
             </Card>
 
             <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/20 p-8 text-center hover:border-amber-500/40 transition-all duration-300 hover:transform hover:scale-105">
@@ -96,7 +105,9 @@ const About = () => {
                 <Target className="w-8 h-8 text-amber-400" />
               </div>
               <h3 className="text-xl font-bold text-white mb-2">Transparent</h3>
-              <p className="text-gray-400">Open governance and clear token distribution</p>
+              <p className="text-gray-400">
+                Open governance and clear token distribution
+              </p>
             </Card>
           </div>
         </div>
@@ -104,10 +115,13 @@ const About = () => {
         {/* CTA Section */}
         <div className="mt-20">
           <Card className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 border border-amber-500/30 p-12 text-center">
-            <h2 className="text-4xl font-bold text-white mb-6">Join the CZTerminal Community</h2>
+            <h2 className="text-4xl font-bold text-white mb-6">
+              Join the CZTerminal Community
+            </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Be part of a growing ecosystem that values transparency, community engagement, and 
-              sustainable growth. Together, we're building the future of community-driven tokens.
+              Be part of a growing ecosystem that values transparency, community
+              engagement, and sustainable growth. Together, we're building the
+              future of community-driven tokens.
             </p>
           </Card>
         </div>

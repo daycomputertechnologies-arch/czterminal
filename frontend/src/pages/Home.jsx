@@ -13,13 +13,14 @@ const Home = () => {
           <div className="flex justify-center mb-6">
             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-[3px]">
               <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/logo.png" 
-                  alt="CZT Logo" 
-                  className="w-full h-full object-cover"
+                <img
+                  src="/logo.webp"
+                  alt="CZT Logo"
+                  className="w-[90%] h-[90%] object-contain"
                   onError={(e) => {
                     e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<span class="text-amber-400 font-bold text-3xl">CZT</span>';
+                    e.target.parentElement.innerHTML =
+                      '<span class="text-amber-400 font-bold text-3xl">CZT</span>';
                   }}
                 />
               </div>
@@ -35,7 +36,7 @@ const Home = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/staking">
-              <button 
+              <button
                 disabled
                 className="px-6 py-3 bg-gray-700 text-gray-400 rounded-lg cursor-not-allowed opacity-50"
               >
@@ -67,11 +68,23 @@ const Home = () => {
               </div>
               <button
                 onClick={() => {
-                  navigator.clipboard.writeText('0x1234567890abcdef1234567890abcdef12345678');
+                  navigator.clipboard.writeText(
+                    '0x1234567890abcdef1234567890abcdef12345678'
+                  );
                 }}
                 className="flex-shrink-0 px-4 py-2 bg-amber-500/20 hover:bg-amber-500/30 text-amber-400 font-semibold rounded-lg transition-all duration-200 hover:scale-105 text-sm flex items-center gap-2"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                 </svg>
@@ -94,7 +107,9 @@ const Home = () => {
               <Coins className="w-6 h-6 text-amber-400" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Tokenomics</h3>
-            <p className="text-gray-400">Transparent and sustainable token distribution</p>
+            <p className="text-gray-400">
+              Transparent and sustainable token distribution
+            </p>
           </Card>
 
           <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/30 p-6 hover:border-amber-500/60 transition-all duration-300">
@@ -102,7 +117,9 @@ const Home = () => {
               <Shield className="w-6 h-6 text-amber-400" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Secure</h3>
-            <p className="text-gray-400">Audited smart contracts with community governance</p>
+            <p className="text-gray-400">
+              Audited smart contracts with community governance
+            </p>
           </Card>
 
           <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/30 p-6 hover:border-amber-500/60 transition-all duration-300">
@@ -110,7 +127,9 @@ const Home = () => {
               <Zap className="w-6 h-6 text-amber-400" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Fast</h3>
-            <p className="text-gray-400">Quick transactions on BSC with low fees</p>
+            <p className="text-gray-400">
+              Quick transactions on BSC with low fees
+            </p>
           </Card>
 
           <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/30 p-6 hover:border-amber-500/60 transition-all duration-300">
@@ -118,7 +137,9 @@ const Home = () => {
               <Users className="w-6 h-6 text-amber-400" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Community</h3>
-            <p className="text-gray-400">Driven by community votes and participation</p>
+            <p className="text-gray-400">
+              Driven by community votes and participation
+            </p>
           </Card>
         </div>
 
@@ -126,7 +147,9 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Link to="/about">
             <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/30 p-6 hover:border-amber-500/60 transition-all duration-300 text-center group">
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition">About</h3>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition">
+                About
+              </h3>
               <p className="text-gray-400">Learn about our mission and team</p>
               <ArrowRight className="w-5 h-5 text-amber-400 mx-auto mt-4" />
             </Card>
@@ -134,15 +157,21 @@ const Home = () => {
 
           <Link to="/tokenomics">
             <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/30 p-6 hover:border-amber-500/60 transition-all duration-300 text-center group">
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition">Tokenomics</h3>
-              <p className="text-gray-400">View token distribution and metrics</p>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition">
+                Tokenomics
+              </h3>
+              <p className="text-gray-400">
+                View token distribution and metrics
+              </p>
               <ArrowRight className="w-5 h-5 text-amber-400 mx-auto mt-4" />
             </Card>
           </Link>
 
           <Link to="/roadmap">
             <Card className="bg-gradient-to-br from-black to-amber-950/20 border border-amber-500/30 p-6 hover:border-amber-500/60 transition-all duration-300 text-center group">
-              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition">Roadmap</h3>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition">
+                Roadmap
+              </h3>
               <p className="text-gray-400">Our journey and future plans</p>
               <ArrowRight className="w-5 h-5 text-amber-400 mx-auto mt-4" />
             </Card>

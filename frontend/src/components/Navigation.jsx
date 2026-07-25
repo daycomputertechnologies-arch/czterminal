@@ -33,7 +33,7 @@ const Navigation = () => {
             <div className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 p-[2px]">
               <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
                 <img
-                  src="/logo.png"
+                  src="/logo.webp"
                   alt="CZT Logo"
                   className="w-full h-full object-cover"
                   onError={(e) => {
