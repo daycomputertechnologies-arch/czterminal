@@ -2,7 +2,7 @@ import React from 'react';
 import { CheckCircle2, Circle, Clock } from '../lib/icons';
 import { Card } from '../components/ui/card';
 
-export const Roadmap = () => {
+const Roadmap = () => {
   const statusConfig = {
     completed: {
       icon: CheckCircle2,
@@ -168,3 +168,5 @@ export const Roadmap = () => {
     </div>
   );
 };
+
+export default Roadmap;

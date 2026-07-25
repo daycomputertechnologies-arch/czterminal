@@ -9,18 +9,19 @@ export const Footer = () => {
           {/* Logo Section */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center overflow-hidden">
-                <img
-                  src="/logo.jpeg"
-                  alt="CZT Logo"
-                  className="w-8 h-8 object-contain"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML =
-                      '<span class="text-black font-bold text-sm">CZT</span>';
-                  }}
-                />
-              </div>
+           <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-1">
+  <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
+    <img 
+      src="/logo.png" 
+      alt="CZT Logo" 
+      className="w-9 h-9 object-contain"
+      onError={(e) => {
+        e.target.style.display = 'none';
+        e.target.parentElement.innerHTML = '<span class="text-amber-400 font-bold text-sm">CZT</span>';
+      }}
+    />
+  </div>
+</div>
               <span className="text-white font-bold text-lg">CZTerminal</span>
             </div>
             <p className="text-gray-400 text-sm max-w-md">

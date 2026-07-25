@@ -3,7 +3,7 @@ import { useAccount, useDisconnect } from 'wagmi';
 import { Wallet, ChevronDown, LogOut, Copy, Check } from '../lib/icons';
 import { useWeb3Modal } from '@web3modal/wagmi/react';
 
-export const WalletConnect = () => {
+const WalletConnect = () => {
   const { address, isConnected } = useAccount();
   const { disconnect } = useDisconnect();
   const { open } = useWeb3Modal();
@@ -89,3 +89,5 @@ export const WalletConnect = () => {
     </div>
   );
 };
+
+export default WalletConnect;

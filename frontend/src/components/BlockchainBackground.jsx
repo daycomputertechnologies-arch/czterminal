@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-export const BlockchainBackground = () => {
+const BlockchainBackground = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -127,3 +127,5 @@ export const BlockchainBackground = () => {
     />
   );
 };
+
+export default BlockchainBackground;

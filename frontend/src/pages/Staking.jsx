@@ -13,7 +13,7 @@ import { Input } from '../components/ui/input';
 import { stakingOptions } from '../mock';
 import { toast } from 'sonner';
 
-export const Staking = () => {
+const Staking = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [amount, setAmount] = useState('');
   const [lockPeriod, setLockPeriod] = useState('30');
@@ -39,7 +39,7 @@ export const Staking = () => {
           {/* Logo Section - ADDED */}
           <div className="mb-8 flex justify-center">
             <img
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="CZT Logo"
               className="w-16 h-16 object-contain"
             />
@@ -245,3 +245,5 @@ export const Staking = () => {
     </div>
   );
 };
+
+export default Staking;
