@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Circle, Clock } from 'lucide-react';
+import { CheckCircle2, Circle, Clock } from '../lib/icons';
 import { Card } from '../components/ui/card';
 
 export const Roadmap = () => {

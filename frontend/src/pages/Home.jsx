@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Shield, Coins, Users } from 'lucide-react';
+import { ArrowRight, Zap, Shield, Coins, Users } from '../lib/icons';
 import { Card } from '../components/ui/card';
 import { PancakeSwapButton } from '../components/PancakeSwapButton';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { WagmiProvider } from 'wagmi';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createWeb3Modal } from '@web3modal/wagmi/react';
@@ -8,13 +8,15 @@ import { Toaster } from '@/components/ui/sonner';
 import { BlockchainBackground } from '@/components/BlockchainBackground';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
-import { Home } from '@/pages/Home';
-import { About } from '@/pages/About';
-import { Tokenomics } from '@/pages/Tokenomics';
-import { Roadmap } from '@/pages/Roadmap';
-import { Staking } from '@/pages/Staking';
-import { Whitepaper } from '@/pages/Whitepaper';
 import './App.css';
+
+// Lazy load pages - this splits the bundle and reduces initial load time
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Tokenomics = lazy(() => import('./pages/Tokenomics'));
+const Roadmap = lazy(() => import('./pages/Roadmap'));
+const Staking = lazy(() => import('./pages/Staking'));
+const Whitepaper = lazy(() => import('./pages/Whitepaper'));
 
 const queryClient = new QueryClient();
 
@@ -28,7 +30,6 @@ createWeb3Modal({
     '--w3m-background-color': '#000000',
     '--w3m-font-family': 'Inter, sans-serif',
   },
-  // This automatically detects mobile and shows appropriate UI
   defaultChain: config.chains[0],
 });
 
@@ -41,14 +42,20 @@ function App() {
           <BrowserRouter>
             <Navigation />
             <div className="relative z-10">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/tokenomics" element={<Tokenomics />} />
-                <Route path="/roadmap" element={<Roadmap />} />
-                <Route path="/staking" element={<Staking />} />
-                <Route path="/whitepaper" element={<Whitepaper />} />
-              </Routes>
+              <Suspense fallback={
+                <div className="flex items-center justify-center min-h-screen">
+                  <div className="text-amber-400 text-xl">Loading...</div>
+                </div>
+              }>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/tokenomics" element={<Tokenomics />} />
+                  <Route path="/roadmap" element={<Roadmap />} />
+                  <Route path="/staking" element={<Staking />} />
+                  <Route path="/whitepaper" element={<Whitepaper />} />
+                </Routes>
+              </Suspense>
             </div>
             <Footer />
           </BrowserRouter>

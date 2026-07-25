@@ -9,7 +9,7 @@ import {
 } from 'recharts';
 import { Card } from '../components/ui/card';
 import { tokenomics } from '../mock';
-import { Coins, Lock, Users, Rocket, Megaphone, Building } from 'lucide-react';
+import { Coins, Lock, Users, Rocket, Megaphone, Building } from '../lib/icons';
 
 export const Tokenomics = () => {
   const chartData = tokenomics.distribution.map((item) => ({

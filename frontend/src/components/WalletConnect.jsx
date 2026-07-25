@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAccount, useDisconnect } from 'wagmi';
-import { Wallet, ChevronDown, LogOut, Copy, Check } from 'lucide-react';
+import { Wallet, ChevronDown, LogOut, Copy, Check } from '../lib/icons';
 import { useWeb3Modal } from '@web3modal/wagmi/react';
 
 export const WalletConnect = () => {

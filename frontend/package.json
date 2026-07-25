@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "homepage": "/",
+    "sideEffects": false,
     "dependencies": {
         "@hookform/resolvers": "5.0.1",
         "@radix-ui/react-accordion": "1.2.8",
@@ -73,15 +74,17 @@
         "zod": "3.24.4"
     },
     "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "install": "npm install --legacy-peer-deps",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "lint": "eslint 'src/**/*.{js,jsx}'",
-    "format": "prettier --write 'src/**/*.{js,jsx,html,css}'"
-},
+        "start": "craco start",
+        "build": "craco build",
+        "install": "npm install --legacy-peer-deps",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+        "lint": "eslint 'src/**/*.{js,jsx}'",
+"analyze:stats": "craco build --stats && npx webpack-bundle-analyzer build/bundle-stats.json",
+        "format": "prettier --write 'src/**/*.{js,jsx,html,css}'",
+        "analyze": "npm run build && npx webpack-bundle-analyzer build"
+    },
     "browserslist": {
         "production": [
             ">0.2%",
@@ -115,7 +118,8 @@
         "jest": "^30.4.2",
         "jest-environment-jsdom": "^30.4.1",
         "postcss": "8.5.10",
-        "tailwindcss": "3.4.17"
+        "tailwindcss": "3.4.17",
+        "webpack-bundle-analyzer": "^5.3.1"
     },
     "resolutions": {
         "@stablelib/random": "1.0.2",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Target, TrendingUp, Users } from 'lucide-react';
+import { Shield, Target, TrendingUp, Users } from '../lib/icons';
 import { Card } from '../components/ui/card';
 
 export const About = () => {

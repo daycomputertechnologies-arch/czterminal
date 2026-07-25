@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAccount } from 'wagmi';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink } from '../lib/icons';
 
 export const PancakeSwapButton = () => {
   const { address, isConnected } = useAccount();
