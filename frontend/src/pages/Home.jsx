@@ -9,18 +9,20 @@ const Home = () => {
     <div className="relative pt-32 pb-20 px-4 min-h-screen">
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-20">
           <div className="flex justify-center mb-6">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center overflow-hidden">
-              <img 
-                src="/logo.png" 
-                alt="CZT Logo" 
-                className="w-20 h-20 object-contain"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.parentElement.innerHTML = '<span class="text-black font-bold text-3xl">CZT</span>';
-                }}
-              />
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-[3px]">
+              <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
+                <img 
+                  src="/logo.png" 
+                  alt="CZT Logo" 
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = '<span class="text-amber-400 font-bold text-3xl">CZT</span>';
+                  }}
+                />
+              </div>
             </div>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">

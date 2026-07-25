@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from '../lib/icons';
 import { useAccount } from 'wagmi';
-import WalletConnect from './WalletConnect';  // ✅ FIXED: removed { }
+import WalletConnect from './WalletConnect';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,20 +30,20 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 p-1">
-  <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
-    <img
-      src="/logo.png"
-      alt="CZT Logo"
-      className="w-11 h-11 object-contain"
-      onError={(e) => {
-        e.target.style.display = 'none';
-        e.target.parentElement.innerHTML =
-          '<span class="text-amber-400 font-bold text-xl">CZT</span>';
-      }}
-    />
-  </div>
-</div>
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 p-[2px]">
+              <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
+                <img
+                  src="/logo.png"
+                  alt="CZT Logo"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML =
+                      '<span class="text-amber-400 font-bold text-xl">CZT</span>';
+                  }}
+                />
+              </div>
+            </div>
             <span className="text-white font-bold text-xl hidden sm:block">
               CZT
             </span>

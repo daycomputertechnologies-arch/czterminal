@@ -27,12 +27,12 @@ const Tokenomics = () => {
         <div className="text-center mb-20">
           {/* Logo */}
           <div className="mb-8 flex justify-center">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-2">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-[2px]">
               <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
                 <img 
                   src="/logo.png" 
                   alt="CZT Logo" 
-                  className="w-16 h-16 object-contain"
+                  className="w-full h-full object-cover"
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.parentElement.innerHTML = '<span class="text-amber-400 font-bold text-2xl">CZT</span>';

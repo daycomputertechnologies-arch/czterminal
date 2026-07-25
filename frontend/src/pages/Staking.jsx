@@ -36,13 +36,21 @@ const Staking = () => {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-20">
-          {/* Logo Section - ADDED */}
+          {/* Logo Section */}
           <div className="mb-8 flex justify-center">
-            <img
-              src="/logo.png"
-              alt="CZT Logo"
-              className="w-16 h-16 object-contain"
-            />
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-[2px]">
+              <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
+                <img
+                  src="/logo.png"
+                  alt="CZT Logo"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = '<span class="text-amber-400 font-bold text-2xl">CZT</span>';
+                  }}
+                />
+              </div>
+            </div>
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-amber-300 to-amber-500 bg-clip-text text-transparent">
