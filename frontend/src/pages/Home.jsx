@@ -63,13 +63,13 @@ const Home = () => {
             <div className="flex items-center gap-3 bg-black/50 rounded-lg p-3 border border-amber-500/20">
               <div className="flex-1 overflow-hidden">
                 <code className="text-sm text-gray-300 font-mono truncate block">
-                  0x1234567890abcdef1234567890abcdef12345678
+                  0x93857a2c3f2a54b94ce4433c46677e3e9ad8798c
                 </code>
               </div>
               <button
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    '0x1234567890abcdef1234567890abcdef12345678'
+                    '0x93857a2c3f2a54b94ce4433c46677e3e9ad8798c'
                   );
                 }}
                 className="flex-shrink-0 px-4 py-2 bg-amber-500/20 hover:bg-amber-500/30 text-amber-400 font-semibold rounded-lg transition-all duration-200 hover:scale-105 text-sm flex items-center gap-2"

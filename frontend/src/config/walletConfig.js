@@ -24,5 +24,5 @@ export const config = createConfig({
   },
 });
 
-export const TOKEN_ADDRESS = '0x1234567890abcdef1234567890abcdef12345678';
+export const TOKEN_ADDRESS = '0x93857a2c3f2a54b94ce4433c46677e3e9ad8798c';
 export const PANCAKESWAP_URL = `https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=${TOKEN_ADDRESS}`;
