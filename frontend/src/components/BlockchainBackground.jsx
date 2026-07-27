@@ -130,3 +130,4 @@ const BlockchainBackground = () => {
 };
 
 export default BlockchainBackground;
+

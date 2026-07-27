@@ -41,14 +41,10 @@ const Staking = () => {
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center p-[2px]">
               <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
                 <img
-                  src="/logo.webp"
+                  src="/logo.webp?v=1"
                   alt="CZT Logo"
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML =
-                      '<span class="text-amber-400 font-bold text-2xl">CZT</span>';
-                  }}
+                  
                 />
               </div>
             </div>
@@ -256,3 +252,4 @@ const Staking = () => {
 };
 
 export default Staking;
+
