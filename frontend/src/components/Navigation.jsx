@@ -14,7 +14,7 @@ const Navigation = () => {
     { path: '/about', label: 'About' },
     { path: '/tokenomics', label: 'Tokenomics' },
     { path: '/roadmap', label: 'Roadmap' },
-    { path: '/staking', label: 'Staking', disabled: true },
+    { path: 'https://czt-staking.netlify.app', label: 'Staking', external: true },
     { path: '/whitepaper', label: '📄 Whitepaper' },
   ];
 
@@ -54,6 +54,16 @@ const Navigation = () => {
                 >
                   {link.label} 🔒
                 </span>
+              ) : link.external ? (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium transition-colors duration-200 text-gray-300 hover:text-amber-400"
+                >
+                  {link.label} ↗
+                </a>
               ) : (
                 <Link
                   key={link.path}
@@ -106,6 +116,17 @@ const Navigation = () => {
                 >
                   {link.label} 🔒
                 </span>
+              ) : link.external ? (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 text-gray-300 hover:bg-amber-500/10 hover:text-amber-400"
+                >
+                  {link.label} ↗
+                </a>
               ) : (
                 <Link
                   key={link.path}

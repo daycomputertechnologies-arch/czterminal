@@ -39,7 +39,6 @@ const Home = () => {
                   src="/logo.webp?v=1"
                   alt="CZT Logo"
                   className="w-[90%] h-[90%] object-contain"
-                  
                 />
               </div>
             </div>
@@ -53,14 +52,15 @@ const Home = () => {
             Community-driven token ecosystem built on Binance Smart Chain
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/staking">
-              <button
-                disabled
-                className="px-6 py-3 bg-gray-700 text-gray-400 rounded-lg cursor-not-allowed opacity-50"
-              >
-                Staking 🔒 (Coming Soon)
+            <a
+              href="https://czt-staking.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold rounded-lg hover:from-amber-400 hover:to-amber-500 transition-all duration-300">
+                Staking ↗
               </button>
-            </Link>
+            </a>
             <Link to="/whitepaper">
               <button className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold rounded-lg hover:from-amber-400 hover:to-amber-500 transition-all duration-300">
                 Read Whitepaper
@@ -203,4 +203,3 @@ const Home = () => {
 };
 
 export default Home;
-
