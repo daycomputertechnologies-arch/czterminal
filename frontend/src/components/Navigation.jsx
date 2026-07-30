@@ -14,7 +14,7 @@ const Navigation = () => {
     { path: '/about', label: 'About' },
     { path: '/tokenomics', label: 'Tokenomics' },
     { path: '/roadmap', label: 'Roadmap' },
-    { path: 'https://czt-staking.netlify.app', label: 'Staking', external: true },
+    { path: '/staking', label: 'Staking', disabled: true },
     { path: '/whitepaper', label: '📄 Whitepaper' },
   ];
 
