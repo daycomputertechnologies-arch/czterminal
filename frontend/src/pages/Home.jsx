@@ -52,13 +52,15 @@ const Home = () => {
             Community-driven token ecosystem built on Binance Smart Chain
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button
-  disabled
-  className="px-6 py-3 bg-gray-700 text-gray-400 rounded-lg cursor-not-allowed opacity-50"
+           <a
+  href="https://czterminal.app"
+  target="_blank"
+  rel="noopener noreferrer"
 >
-  Staking 🔒 (Coming Soon)
-</button>
-      
+  <button className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold rounded-lg hover:from-amber-400 hover:to-amber-500 transition-all duration-300">
+    Stake CZT ↗
+  </button>
+</a>      
             <Link to="/whitepaper">
               <button className="px-6 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold rounded-lg hover:from-amber-400 hover:to-amber-500 transition-all duration-300">
                 Read Whitepaper
